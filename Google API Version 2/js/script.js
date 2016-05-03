@@ -7,17 +7,17 @@
 		$.ajax ({
 			url: APIurl,
 			dataType: 'jsonp',
-			success: function(data){
+			success: function(data, textStatus){
 				var ul = document.createElement("ul");
 				$.each(data.results, function(i, val){
 					var li = document.createElement("li");
-					li.innerHTML = '<a href="'+val.url+'" title="'+val.url+'" target="_blank">'+val.title+"</a><p class='links'>"
-									+val.url+"</p><p class='content'>"+val.content+"</p>";                          
+					li.innerHTML = '<a href="'+val.url+'"target="_blank">'+val.title+'</a><p class="url">'+val.url+'</p><p class="content">'+val.content+'</p>'; 
 					ul.appendChild(li);
 				});
 				$('.google_search__result').html(ul);
 			}
 		});
+		return false;
 	});
 });
 
